@@ -2,6 +2,11 @@
 
 TODO(team): implement the pricing rule(s) assigned to you in the README.
 """
+TAX_RATE = 0.08  
+
+def add_sales_tax(amount):
+    """Return the amount with Feature B's sales tax added."""
+    return amount + (amount * TAX_RATE)
 
 
 def calculate_total(
@@ -9,6 +14,9 @@ def calculate_total(
 ):
     """Calculate the final total a customer pays for their cart."""
     total = subtotal
+
+    if apply_tax:
+        total = add_sales_tax(total)
 
     
     if apply_discount:
